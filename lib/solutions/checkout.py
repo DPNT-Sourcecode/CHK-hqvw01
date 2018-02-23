@@ -93,7 +93,7 @@ def checkout(skus):
     sku_to_count, cost = x_for_y(sku_to_count, cost, "H", 10, 80)
     sku_to_count, cost = x_for_y(sku_to_count, cost, "H", 5, 45)
     
-    sku_to_count, cost = x_for_y(sku_to_count, cost, "K", 2, 150)
+    sku_to_count, cost = x_for_y(sku_to_count, cost, "K", 2, 120)
     
     sku_to_count = x_get_one_y_free(sku_to_count, "N", 3, "M")
  
