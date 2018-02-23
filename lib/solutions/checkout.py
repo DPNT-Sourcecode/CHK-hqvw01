@@ -15,17 +15,20 @@ def checkout(skus):
         if item not in PRICES:
             return -1
         
+    skus = str(skus)
     cost = 0
     sku_to_count = {}
     for sku in PRICES:
         sku_to_count[sku] = skus.count(sku)
         
     # Apply special offers.
-    cost += 130 * sku_to_count["A"] // 3
-    sku_to_count["A"] = sku_to_count["A"] % 3
+    if sku_to_count["A"] >= 3:
+        cost += 130 * sku_to_count["A"] // 3
+        sku_to_count["A"] = sku_to_count["A"] % 3
     
-    cost += 45 * sku_to_count["B"] // 2
-    sku_to_count["B"] = sku_to_count["B"] % 2
+    if sku_to_count["B"] >= 2:
+        cost += 45 * sku_to_count["B"] // 2
+        sku_to_count["B"] = sku_to_count["B"] % 2
     
     # Now iterate over and add the remaining prices
     for item in PRICES:
