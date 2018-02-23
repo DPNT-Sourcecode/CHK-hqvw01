@@ -1,4 +1,5 @@
 
+# Basic price table, without offers 
 PRICES = {"A": 50,
           "B": 30,
           "C": 20,
@@ -25,10 +26,10 @@ PRICES = {"A": 50,
           "X": 90,
           "Y": 10,
           "Z": 50}
-
-# noinspection PyUnusedLocal
-# skus = unicode string
-
+#------------------------------------------------------------------------------
+# Offer Functions
+#   - The names of the functions should make their purpose fairly clear.
+#------------------------------------------------------------------------------
 def x_for_y(sku_to_count, cost, product, number, item_cost):
     if sku_to_count[product] >= number:
         cost += item_cost * (sku_to_count[product] // number)
@@ -49,7 +50,13 @@ def x_get_x_free(sku_to_count, product, number):
     if sku_to_count[product] >= 3:
         sku_to_count[product] -= sku_to_count[product] // number   
     return sku_to_count
-    
+ 
+#------------------------------------------------------------------------------
+# End offer functions
+#------------------------------------------------------------------------------ 
+  
+# noinspection PyUnusedLocal
+# skus = unicode string    
 def checkout(skus):
     
     if not isinstance(skus, unicode):
