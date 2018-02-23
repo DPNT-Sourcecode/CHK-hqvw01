@@ -50,6 +50,11 @@ def x_get_x_free(sku_to_count, product, number):
     if sku_to_count[product] >= 3:
         sku_to_count[product] -= sku_to_count[product] // number   
     return sku_to_count
+    
+def any_3_stxyz_45(sku_to_count, cost):
+    # note that the following is in order of decreasing price.
+    products = ["Z", "Y", "S", "T", "X"]
+    number_of_items = sum([sku_to_count[item] for item in products])
  
 #------------------------------------------------------------------------------
 # End offer functions
