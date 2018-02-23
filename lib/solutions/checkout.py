@@ -54,11 +54,18 @@ def x_get_x_free(sku_to_count, product, number):
 def any_3_stxyz_45(sku_to_count, cost):
     # note that the following is in order of increasing price.
     products = ["X", "T", "S", "Y", "Z"]
-    number_of_items = sum([sku_to_count[item] for item in products \
-                             if item in sku_to_count])
+    list_of_items = [sku_to_count[item] for item in products \
+                             if item in sku_to_count]
+    number_of_items = 0            
+    for item in list_of_items:
+        number_of_items += item
+                                 
     to_remove = {item: 0 for item in products}
     current_item = products.pop()
     count_to_3 = 0
+    
+    import pdb;pdb.set_trace()
+    
     while number_of_items // 3 != 0:
         if sku_to_count[current_item] - to_remove[current_item] > 0:
             to_remove[current_item] += 1
@@ -66,6 +73,7 @@ def any_3_stxyz_45(sku_to_count, cost):
             number_of_items -= 1
             
         if count_to_3 % 3 == 0:
+            print to_remove
             # We actually remove them now, and add the cost
             for item in to_remove:
                 sku_to_count[item] -= to_remove[item]
