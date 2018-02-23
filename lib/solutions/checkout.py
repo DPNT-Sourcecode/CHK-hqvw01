@@ -64,7 +64,7 @@ def any_3_stxyz_45(sku_to_count, cost):
     current_item = products.pop()
     count_to_3 = 0
     
-    while number_of_items // 3 != 0 and count_to_3 == 0:
+    while (number_of_items + count_to_3) // 3 != 0:
         
         while current_item not in sku_to_count and products:
             current_item = products.pop()
