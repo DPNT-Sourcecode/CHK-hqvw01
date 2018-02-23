@@ -65,8 +65,13 @@ def any_3_stxyz_45(sku_to_count, cost):
     count_to_3 = 0
     
     while number_of_items // 3 != 0 and count_to_3 == 0:
-        print sku_to_count
-        print to_remove
+        
+        while current_item not in sku_to_count and products:
+            current_item = products.pop()
+            
+        if not products:
+            break
+        
         if sku_to_count[current_item] - to_remove[current_item] > 0:
             to_remove[current_item] += 1
             count_to_3 += 1
@@ -78,6 +83,9 @@ def any_3_stxyz_45(sku_to_count, cost):
                 sku_to_count[item] -= to_remove[item]
                 
             cost += 45
+            
+        print sku_to_count
+        print to_remove
             
     return sku_to_count, cost
             
