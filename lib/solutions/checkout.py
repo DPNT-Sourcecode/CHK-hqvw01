@@ -67,8 +67,7 @@ def checkout(skus):
     sku_to_count = offer[0]
     
     # F offer currently has no dependencies
-    if sku_to_count["F"] >= 3:
-        sku_to_count["F"] -= sku_to_count["F"] // 3
+    sku_to_count = x_get_x_free(sku_to_count, "F", 3)
         
     # Now iterate over and add the remaining prices
     for item in PRICES:
