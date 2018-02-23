@@ -23,16 +23,16 @@ def checkout(skus):
         
     # Apply special offers.
     if sku_to_count["A"] >= 3:
-        cost += 130 * sku_to_count["A"] // 3
+        cost += 130 * (sku_to_count["A"] // 3)
         sku_to_count["A"] = sku_to_count["A"] % 3
     
     if sku_to_count["B"] >= 2:
-        cost += 45 * sku_to_count["B"] // 2
+        cost += 45 * (sku_to_count["B"] // 2)
         sku_to_count["B"] = sku_to_count["B"] % 2
     
     # Now iterate over and add the remaining prices
     for item in PRICES:
-        cost += sku_to_count[item] * PRICES[item]
+        cost += (sku_to_count[item] * PRICES[item])
         
     return cost
     
