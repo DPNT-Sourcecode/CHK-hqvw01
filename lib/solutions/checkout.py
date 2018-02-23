@@ -27,8 +27,11 @@ def checkout(skus):
     # We always start with E - it should be applied before B's as it's the
     # cheaper way.        
     if sku_to_count["E"] >= 2:
-        if sku_to_count["B"] > 0:
-            sku_to_count["B"] -= 1
+        
+        if sku_to_count["B"] > sku_to_count["E"] // 2:
+            sku_to_count["B"] -= (sku_to_count["E"] // 2)
+        else:
+            sku_to_count["B"] = 0
 
     # 5A, 1A is better than 3A 3A, as is 5A 2A than 3A 3A 1A
     if sku_to_count["A"] >= 5:
