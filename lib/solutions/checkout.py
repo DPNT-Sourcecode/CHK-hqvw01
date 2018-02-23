@@ -23,6 +23,17 @@ def checkout(skus):
         sku_to_count[sku] = skus.count(sku)
         
     # Apply special offers.
+        
+    # We always start with E - it should be applied before B's as it's the
+    # cheaper way.        
+    if sku_to_count["E"] >= 2:
+        if sku_to_count["B"] > 0:
+            sku_to_count["B"] -= 1
+
+    if sku_to_count["A"] >= 5:
+        cost += 200 * (sku_to_count["A"] // 5)
+        sku_to_count["A"] = sku_to_count["A"] % 5
+        
     if sku_to_count["A"] >= 3:
         cost += 130 * (sku_to_count["A"] // 3)
         sku_to_count["A"] = sku_to_count["A"] % 3
