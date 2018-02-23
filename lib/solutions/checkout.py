@@ -8,6 +8,14 @@ PRICES = {"A": 50,
 
 # noinspection PyUnusedLocal
 # skus = unicode string
+
+def x_for_y(sku_to_count, product, number, item_cost):
+    cost = 0
+    if sku_to_count[product] >= number:
+        cost += item_cost * (sku_to_count[product] // number)
+        sku_to_count[product] = sku_to_count[product] % number
+    return (sku_to_count, cost)
+    
 def checkout(skus):
     
     if not isinstance(skus, unicode):
@@ -35,9 +43,12 @@ def checkout(skus):
             sku_to_count["B"] = 0
 
     # 5A, 1A is better than 3A 3A, as is 5A 2A than 3A 3A 1A
-    if sku_to_count["A"] >= 5:
-        cost += 200 * (sku_to_count["A"] // 5)
-        sku_to_count["A"] = sku_to_count["A"] % 5
+    offer = x_for_y(sku_to_count, "A", 5, 200)
+    cost += offer[1]
+    sku_to_count = offer[0]
+#    if sku_to_count["A"] >= 5:
+#        cost += 200 * (sku_to_count["A"] // 5)
+#        sku_to_count["A"] = sku_to_count["A"] % 5
         
     if sku_to_count["A"] >= 3:
         cost += 130 * (sku_to_count["A"] // 3)
