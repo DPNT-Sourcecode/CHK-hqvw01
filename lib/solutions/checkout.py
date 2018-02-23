@@ -52,9 +52,30 @@ def x_get_x_free(sku_to_count, product, number):
     return sku_to_count
     
 def any_3_stxyz_45(sku_to_count, cost):
-    # note that the following is in order of decreasing price.
-    products = ["Z", "Y", "S", "T", "X"]
-    number_of_items = sum([sku_to_count[item] for item in products])
+    # note that the following is in order of increasing price.
+    products = ["X", "T", "S", "Y", "Z"]
+    number_of_items = sum([sku_to_count[item] for item in products \
+                             if item in sku_to_count])
+    to_remove = {item: 0 for item in products}
+    current_item = products.pop()
+    count_to_3 = 0
+    while number_of_items // 3 != 0:
+        if sku_to_count[current_item] - to_remove[current_item] > 0:
+            to_remove[current_item] += 1
+            count_to_3 += 1
+            number_of_items -= 1
+            
+        if count_to_3 % 3 == 0:
+            # We actually remove them now, and add the cost
+            for item in to_remove:
+                sku_to_count[item] -= to_remove[item]
+                
+            cost += 45
+            
+    return sku_to_count, cost
+            
+            
+            
  
 #------------------------------------------------------------------------------
 # End offer functions
