@@ -3,7 +3,8 @@ PRICES = {"A": 50,
           "B": 30,
           "C": 20,
           "D": 15,
-          "E": 40}
+          "E": 40,
+          "F": 10}
 
 # noinspection PyUnusedLocal
 # skus = unicode string
@@ -46,6 +47,10 @@ def checkout(skus):
         cost += 45 * (sku_to_count["B"] // 2)
         sku_to_count["B"] = sku_to_count["B"] % 2
     
+    # F offer currently has no dependencies
+    if sku_to_count["F"] >= 3:
+        sku_to_count["F"] -= sku_to_count["F"] // 3
+        
     # Now iterate over and add the remaining prices
     for item in PRICES:
         cost += (sku_to_count[item] * PRICES[item])
