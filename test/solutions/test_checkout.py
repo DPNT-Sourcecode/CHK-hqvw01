@@ -34,6 +34,12 @@ class TestCheckout(unittest.TestCase):
         
     def test_checkout_10(self):
         self.assertEqual(checkout(2), -1)
+        
+    def test_checkout_11(self):
+        self.assertEqual(checkout(u'BBEE'), 110)
+        
+    def test_checkout_12(self):
+        self.assertEqual(checkout(u'BBBEE'), 125)    
 
 
 if __name__ == '__main__':
