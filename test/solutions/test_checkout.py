@@ -14,15 +14,16 @@ class TestCheckout(unittest.TestCase):
         self.assertEqual(180, checkout(u'AAAA'))
         
     def test_checkout_4(self):
-        self.assertEqual(checkout(u'AAAAABABBB'), 350)
+        self.assertEqual(checkout(u'AAAAABABBB'), 340)
         
     def test_checkout_5(self):
-        self.assertEqual(checkout(u'AAAAABABBBA'), 400)
+        self.assertEqual(checkout(u'AAAAABABBBA'), 390)
         
     def test_checkout_6(self):
         self.assertEqual(checkout(u'ABCDABCDA'), 245)
         
     def test_checkout_7(self):
+        # Not unicode
         self.assertEqual(checkout("AAAA"), -1)
         
     def test_checkout_8(self):

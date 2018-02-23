@@ -30,6 +30,7 @@ def checkout(skus):
         if sku_to_count["B"] > 0:
             sku_to_count["B"] -= 1
 
+    # 5A, 1A is better than 3A 3A, as is 5A 2A than 3A 3A 1A
     if sku_to_count["A"] >= 5:
         cost += 200 * (sku_to_count["A"] // 5)
         sku_to_count["A"] = sku_to_count["A"] % 5
