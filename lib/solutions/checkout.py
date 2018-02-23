@@ -26,6 +26,11 @@ def x_get_one_y_free(sku_to_count, buy_prod, number_of_buy, free_prod):
             
     return sku_to_count
     
+def x_get_x_free(sku_to_count, product, number):
+    if sku_to_count[product] >= 3:
+        sku_to_count[product] -= sku_to_count[product] // number   
+    return sku_to_count
+    
 def checkout(skus):
     
     if not isinstance(skus, unicode):
@@ -45,12 +50,8 @@ def checkout(skus):
         
     # We always start with E - it should be applied before B's as it's the
     # cheaper way.        
-    if sku_to_count["E"] >= 2:
         
-        if sku_to_count["B"] > sku_to_count["E"] // 2:
-            sku_to_count["B"] -= (sku_to_count["E"] // 2)
-        else:
-            sku_to_count["B"] = 0
+    sku_to_count = x_get_one_y_free(sku_to_count, "E", 2, "B")
 
     # 5A, 1A is better than 3A 3A, as is 5A 2A than 3A 3A 1A
     offer = x_for_y(sku_to_count, "A", 5, 200)
