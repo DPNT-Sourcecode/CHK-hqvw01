@@ -98,6 +98,9 @@ class TestCheckout(unittest.TestCase):
         
     def test_checkout_30(self):
         self.assertEqual(checkout(u'RRRRRRRRRQQQQ'), 480)
+        
+    def test_checkout_31(self):
+        self.assertEqual(checkout(u'UUU'), 120)
     
 
 
