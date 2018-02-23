@@ -71,6 +71,31 @@ class TestCheckout(unittest.TestCase):
     def test_checkout_21(self):
         # Check that the prices match the expected.  This should suffice.
         self.assertEqual(checkout(u'ABCDEFGHIJKLMNOPQRSTUVWXYZ'), 965)
+        
+    def test_checkout_22(self):
+        self.assertEqual(checkout(u'HHHHHHHHHHHHHHH'), 125)
+       
+    def test_checkout_23(self):
+        self.assertEqual(checkout(u'KKKK'), 300)
+    
+    def test_checkout_24(self):
+        self.assertEqual(checkout(u'KKKKK'), 380)
+
+    def test_checkout_25(self):
+        self.assertEqual(checkout(u'NNN'), 120)
+        
+    def test_checkout_26(self):
+        self.assertEqual(checkout(u'NNNM'), 120)
+        
+    def test_checkout_27(self):
+        self.assertEqual(checkout(u'NNNNNNM'), 240)
+        
+    def test_checkout_28(self):
+        self.assertEqual(checkout(u'NNNNNNMM'), 240)
+        
+    def test_checkout_29(self):
+        self.assertEqual(checkout(u'QQQRRR'), 210)
+    
 
 
 

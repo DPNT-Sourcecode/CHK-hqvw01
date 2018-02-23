@@ -84,16 +84,14 @@ def checkout(skus):
     
     # Begin remaining offers in order.
     sku_to_count, cost = x_for_y(sku_to_count, cost, "A", 5, 200)
-    
     sku_to_count, cost = x_for_y(sku_to_count, cost, "A", 3, 130)
     
     sku_to_count, cost = x_for_y(sku_to_count, cost, "B", 2, 45)
     
     sku_to_count = x_get_x_free(sku_to_count, "F", 3)
-        
-    sku_to_count, cost = x_for_y(sku_to_count, cost, "H", 5, 45)
     
     sku_to_count, cost = x_for_y(sku_to_count, cost, "H", 10, 80)
+    sku_to_count, cost = x_for_y(sku_to_count, cost, "H", 5, 45)
     
     sku_to_count, cost = x_for_y(sku_to_count, cost, "K", 2, 150)
     
@@ -105,9 +103,8 @@ def checkout(skus):
     
     sku_to_count = x_get_x_free(sku_to_count, "U", 3)
     
-    sku_to_count, cost = x_for_y(sku_to_count, cost, "V", 2, 90)
-    
     sku_to_count, cost = x_for_y(sku_to_count, cost, "V", 3, 130)
+    sku_to_count, cost = x_for_y(sku_to_count, cost, "V", 2, 90)
     
     
     # Now iterate over and add the remaining prices
