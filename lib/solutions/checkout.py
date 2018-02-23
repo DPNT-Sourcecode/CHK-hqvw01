@@ -46,17 +46,14 @@ def checkout(skus):
     offer = x_for_y(sku_to_count, "A", 5, 200)
     cost += offer[1]
     sku_to_count = offer[0]
-#    if sku_to_count["A"] >= 5:
-#        cost += 200 * (sku_to_count["A"] // 5)
-#        sku_to_count["A"] = sku_to_count["A"] % 5
-        
-    if sku_to_count["A"] >= 3:
-        cost += 130 * (sku_to_count["A"] // 3)
-        sku_to_count["A"] = sku_to_count["A"] % 3
     
-    if sku_to_count["B"] >= 2:
-        cost += 45 * (sku_to_count["B"] // 2)
-        sku_to_count["B"] = sku_to_count["B"] % 2
+    offer = x_for_y(sku_to_count, "A", 3, 130)
+    cost += offer[1]
+    sku_to_count = offer[0]
+    
+    offer = x_for_y(sku_to_count, "B", 2, 45)
+    cost += offer[1]
+    sku_to_count = offer[0]
     
     # F offer currently has no dependencies
     if sku_to_count["F"] >= 3:
