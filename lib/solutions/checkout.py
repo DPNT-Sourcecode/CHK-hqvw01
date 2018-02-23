@@ -4,7 +4,27 @@ PRICES = {"A": 50,
           "C": 20,
           "D": 15,
           "E": 40,
-          "F": 10}
+          "F": 10,
+          "G": 20,
+          "H": 10,
+          "I": 35,
+          "J": 60,
+          "K": 80,
+          "L": 90,
+          "M": 15,
+          "N": 40,
+          "O": 10,
+          "P": 50,
+          "Q": 30,
+          "R": 50,
+          "S": 30,
+          "T": 20,
+          "U": 40,
+          "V": 50,
+          "W": 20,
+          "X": 90,
+          "Y": 10,
+          "Z": 50}
 
 # noinspection PyUnusedLocal
 # skus = unicode string
@@ -53,7 +73,6 @@ def checkout(skus):
         
     sku_to_count = x_get_one_y_free(sku_to_count, "E", 2, "B")
 
-    # 5A, 1A is better than 3A 3A, as is 5A 2A than 3A 3A 1A
     offer = x_for_y(sku_to_count, "A", 5, 200)
     cost += offer[1]
     sku_to_count = offer[0]
