@@ -16,6 +16,16 @@ def x_for_y(sku_to_count, product, number, item_cost):
         sku_to_count[product] = sku_to_count[product] % number
     return (sku_to_count, cost)
     
+def x_get_one_y_free(sku_to_count, buy_prod, number_of_buy, free_prod):
+    if sku_to_count[buy_prod] >= number_of_buy:
+        
+        if sku_to_count[free_prod] > sku_to_count[buy_prod] // number_of_buy:
+            sku_to_count[free_prod] -= (sku_to_count[buy_prod] // number_of_buy)
+        else:
+            sku_to_count[free_prod] = 0  
+            
+    return sku_to_count
+    
 def checkout(skus):
     
     if not isinstance(skus, unicode):
