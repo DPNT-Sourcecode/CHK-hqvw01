@@ -76,49 +76,31 @@ def checkout(skus):
     sku_to_count = x_get_one_y_free(sku_to_count, "R", 3, "Q")
     
     # Begin remaining offers in order.
-    sku_to_count, cost = x_for_y(sku_to_count, "A", 5, 200)
+    sku_to_count, cost = x_for_y(sku_to_count, cost, "A", 5, 200)
     
-    offer = x_for_y(sku_to_count, "A", 3, 130)
-    cost += offer[1]
-    sku_to_count = offer[0]
+    sku_to_count, cost = x_for_y(sku_to_count, cost, "A", 3, 130)
     
-    offer = x_for_y(sku_to_count, "B", 2, 45)
-    cost += offer[1]
-    sku_to_count = offer[0]
+    sku_to_count, cost = x_for_y(sku_to_count, cost, "B", 2, 45)
     
     sku_to_count = x_get_x_free(sku_to_count, "F", 3)
         
-    offer = x_for_y(sku_to_count, "H", 5, 45)
-    cost += offer[1]
-    sku_to_count = offer[0]
+    sku_to_count, cost = x_for_y(sku_to_count, cost, "H", 5, 45)
     
-    offer = x_for_y(sku_to_count, "H", 10, 80)
-    cost += offer[1]
-    sku_to_count = offer[0]
+    sku_to_count, cost = x_for_y(sku_to_count, cost, "H", 10, 80)
     
-    offer = x_for_y(sku_to_count, "K", 2, 150)
-    cost += offer[1]
-    sku_to_count = offer[0]
+    sku_to_count, cost = x_for_y(sku_to_count, cost, "K", 2, 150)
     
     sku_to_count = x_get_one_y_free(sku_to_count, "N", 3, "M")
  
-    offer = x_for_y(sku_to_count, "P", 5, 200)
-    cost += offer[1]
-    sku_to_count = offer[0]  
+    sku_to_count, cost = x_for_y(sku_to_count, cost, "P", 5, 200)
     
-    offer = x_for_y(sku_to_count, "Q", 3, 80)
-    cost += offer[1]
-    sku_to_count = offer[0]
+    sku_to_count, cost = x_for_y(sku_to_count, cost, "Q", 3, 80)
     
     sku_to_count = x_get_x_free(sku_to_count, "U", 3)
     
-    offer = x_for_y(sku_to_count, "V", 2, 90)
-    cost += offer[1]
-    sku_to_count = offer[0]  
+    sku_to_count, cost = x_for_y(sku_to_count, cost, "V", 2, 90)
     
-    offer = x_for_y(sku_to_count, "V", 3, 130)
-    cost += offer[1]
-    sku_to_count = offer[0]
+    sku_to_count, cost = x_for_y(sku_to_count, cost, "V", 3, 130)
     
     
     # Now iterate over and add the remaining prices
