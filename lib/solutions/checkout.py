@@ -64,16 +64,15 @@ def any_3_stxyz_45(sku_to_count, cost):
     current_item = products.pop()
     count_to_3 = 0
     
-    import pdb;pdb.set_trace()
-    
-    while number_of_items // 3 != 0:
+    while number_of_items // 3 != 0 and count_to_3 == 0:
+        print sku_to_count
+        print to_remove
         if sku_to_count[current_item] - to_remove[current_item] > 0:
             to_remove[current_item] += 1
             count_to_3 += 1
             number_of_items -= 1
             
         if count_to_3 % 3 == 0:
-            print to_remove
             # We actually remove them now, and add the cost
             for item in to_remove:
                 sku_to_count[item] -= to_remove[item]
