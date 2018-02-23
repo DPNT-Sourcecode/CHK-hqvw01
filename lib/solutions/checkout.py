@@ -29,8 +29,7 @@ PRICES = {"A": 50,
 # noinspection PyUnusedLocal
 # skus = unicode string
 
-def x_for_y(sku_to_count, product, number, item_cost):
-    cost = 0
+def x_for_y(sku_to_count, cost, product, number, item_cost):
     if sku_to_count[product] >= number:
         cost += item_cost * (sku_to_count[product] // number)
         sku_to_count[product] = sku_to_count[product] % number
@@ -73,9 +72,11 @@ def checkout(skus):
         
     sku_to_count = x_get_one_y_free(sku_to_count, "E", 2, "B")
 
-    offer = x_for_y(sku_to_count, "A", 5, 200)
-    cost += offer[1]
-    sku_to_count = offer[0]
+    # As above for R.
+    sku_to_count = x_get_one_y_free(sku_to_count, "R", 3, "Q")
+    
+    # Begin remaining offers in order.
+    sku_to_count, cost = x_for_y(sku_to_count, "A", 5, 200)
     
     offer = x_for_y(sku_to_count, "A", 3, 130)
     cost += offer[1]
@@ -85,9 +86,41 @@ def checkout(skus):
     cost += offer[1]
     sku_to_count = offer[0]
     
-    # F offer currently has no dependencies
     sku_to_count = x_get_x_free(sku_to_count, "F", 3)
         
+    offer = x_for_y(sku_to_count, "H", 5, 45)
+    cost += offer[1]
+    sku_to_count = offer[0]
+    
+    offer = x_for_y(sku_to_count, "H", 10, 80)
+    cost += offer[1]
+    sku_to_count = offer[0]
+    
+    offer = x_for_y(sku_to_count, "K", 2, 150)
+    cost += offer[1]
+    sku_to_count = offer[0]
+    
+    sku_to_count = x_get_one_y_free(sku_to_count, "N", 3, "M")
+ 
+    offer = x_for_y(sku_to_count, "P", 5, 200)
+    cost += offer[1]
+    sku_to_count = offer[0]  
+    
+    offer = x_for_y(sku_to_count, "Q", 3, 80)
+    cost += offer[1]
+    sku_to_count = offer[0]
+    
+    sku_to_count = x_get_x_free(sku_to_count, "U", 3)
+    
+    offer = x_for_y(sku_to_count, "V", 2, 90)
+    cost += offer[1]
+    sku_to_count = offer[0]  
+    
+    offer = x_for_y(sku_to_count, "V", 3, 130)
+    cost += offer[1]
+    sku_to_count = offer[0]
+    
+    
     # Now iterate over and add the remaining prices
     for item in PRICES:
         cost += (sku_to_count[item] * PRICES[item])
