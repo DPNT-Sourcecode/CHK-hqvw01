@@ -27,12 +27,15 @@ class TestCheckout(unittest.TestCase):
         self.assertEqual(checkout("AAAA"), -1)
         
     def test_checkout_8(self):
-        self.assertEqual(checkout(u'HELLOAAAAA'), -1)
+        # contains an int
+        self.assertEqual(checkout(u'HELL1OAAAAA'), -1)
         
     def test_checkout_9(self):
+        # contains an int
         self.assertEqual(checkout(u'2'), -1)
         
     def test_checkout_10(self):
+        # is an int!
         self.assertEqual(checkout(2), -1)
         
     def test_checkout_11(self):
