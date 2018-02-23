@@ -11,9 +11,13 @@ def checkout(skus):
     if not isinstance(skus, unicode):
         return -1
         
+    for item in skus:
+        if item not in PRICES:
+            return -1
+        
     cost = 0
     sku_to_count = {}
-    for sku in ["A", "B", "C", "D"]:
+    for sku in PRICES:
         sku_to_count[sku] = skus.count(sku)
         
     # Apply special offers.
