@@ -47,6 +47,29 @@ class TestCheckout(unittest.TestCase):
     def test_checkout_14(self):
         self.assertEqual(checkout(u'BEBEEE'), 160)    
 
+    def test_checkout_15(self):
+        self.assertEqual(checkout(u'F'), 10)   
+        
+    def test_checkout_16(self):
+        self.assertEqual(checkout(u'FF'), 20)
+        
+    def test_checkout_17(self):
+        self.assertEqual(checkout(u'FFF'), 20)
+        
+    def test_checkout_18(self):
+        self.assertEqual(checkout(u'FFFF'), 30)
+        
+    def test_checkout_19(self):
+        self.assertEqual(checkout(u'FFFFF'), 40) 
+        
+    def test_checkout_14(self):
+        self.assertEqual(checkout(u'FFFFFF'), 40)    
+
+
+
+
+
+
 
 if __name__ == '__main__':
     unittest.main()
